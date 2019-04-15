@@ -1,0 +1,6 @@
+model_checkpoint_path: "mnist_model-79304"
+all_model_checkpoint_paths: "mnist_model-78904"
+all_model_checkpoint_paths: "mnist_model-79004"
+all_model_checkpoint_paths: "mnist_model-79104"
+all_model_checkpoint_paths: "mnist_model-79204"
+all_model_checkpoint_paths: "mnist_model-79304"
