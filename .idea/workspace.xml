@@ -1,7 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b701ce23-0c4b-417e-895e-9bd22822eceb" name="Default Changelist" comment="" />
+    <list default="true" id="b701ce23-0c4b-417e-895e-9bd22822eceb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/model/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/model/checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49501.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49501.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49501.index" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49501.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49501.meta" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49501.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49601.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49601.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49601.index" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49601.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49601.meta" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49601.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49701.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49701.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49701.index" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49701.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49701.meta" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49701.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49801.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49801.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49801.index" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49801.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49801.meta" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49801.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49901.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49901.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49901.index" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49901.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-49901.meta" beforeDir="false" afterPath="$PROJECT_DIR$/model/mnist_model-49901.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50402.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50402.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50402.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50502.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50502.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50502.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50602.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50602.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50602.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50702.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50702.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50702.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50802.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50802.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-50802.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70003.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70003.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70003.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70103.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70103.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70103.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70203.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70203.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70203.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70303.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70303.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70303.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70403.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70403.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-70403.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-78904.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-78904.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-78904.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79004.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79004.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79004.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79104.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79104.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79104.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79204.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79204.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79204.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79304.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79304.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/mnist_model-79304.meta" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,29 +99,34 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-118923500">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Image_Preprocessing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1012">
-              <caret line="173" column="52" lean-forward="true" selection-start-line="173" selection-start-column="52" selection-end-line="173" selection-end-column="52" />
+            <state relative-caret-position="374">
+              <caret line="173" column="52" selection-start-line="173" selection-start-column="52" selection-end-line="173" selection-end-column="52" />
               <folding>
                 <element signature="e#204#214#0" expanded="true" />
-                <element signature="e#417#2078#0" />
-                <element signature="e#2109#3407#0" />
-                <element signature="e#3486#3902#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mnist_lenet5_forward.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1276">
-              <caret line="64" column="56" lean-forward="true" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+            <state relative-caret-position="238">
+              <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -67,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mnist_lenet5_backward.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-642">
-              <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            <state relative-caret-position="62">
+              <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
               <folding>
                 <element signature="e#206#229#0" expanded="true" />
               </folding>
@@ -79,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mnist_lenet5_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
+            <state relative-caret-position="462">
               <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#202#213#0" expanded="true" />
@@ -91,8 +158,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mnist_lenet5_app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="220">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding>
                 <element signature="e#201#224#0" expanded="true" />
               </folding>
@@ -108,6 +175,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -130,22 +200,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Packaging_Handwritten_Digit_Recognition" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Packaging_Handwritten_Digit_Recognition" type="462c0819:PsiDirectoryNode" />
+              <item name="PackagingHandwrittenDigitRecognition" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PackagingHandwrittenDigitRecognition" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mnist_lenet5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -253,9 +323,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Image_Preprocessing" />
         <item itemvalue="Python.mnist_lenet5_backward" />
         <item itemvalue="Python.mnist_lenet5_forward" />
+        <item itemvalue="Python.Image_Preprocessing" />
         <item itemvalue="Python.mnist_lenet5_test" />
       </list>
     </recent_temporary>
@@ -277,20 +347,20 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -300,19 +370,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mnist_lenet5_backward.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-642">
-          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-          <folding>
-            <element signature="e#206#229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mnist_lenet5_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
+        <state relative-caret-position="462">
           <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#202#213#0" expanded="true" />
@@ -322,31 +382,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mnist_lenet5_app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="220">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
             <element signature="e#201#224#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Image_Preprocessing.py">
+    <entry file="file://$PROJECT_DIR$/mnist_lenet5_backward.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="173" column="52" lean-forward="true" selection-start-line="173" selection-start-column="52" selection-end-line="173" selection-end-column="52" />
+        <state relative-caret-position="62">
+          <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
           <folding>
-            <element signature="e#204#214#0" expanded="true" />
-            <element signature="e#417#2078#0" />
-            <element signature="e#2109#3407#0" />
-            <element signature="e#3486#3902#0" />
+            <element signature="e#206#229#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mnist_lenet5_forward.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1276">
-          <caret line="64" column="56" lean-forward="true" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+        <state relative-caret-position="238">
+          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Image_Preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="173" column="52" selection-start-line="173" selection-start-column="52" selection-end-line="173" selection-end-column="52" />
+          <folding>
+            <element signature="e#204#214#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
