@@ -8,12 +8,6 @@
 import cv2
 import numpy as np
 import mnist_lenet5_app
-# 读取图片
-img_origin = cv2.imread('pictures/box3.jpg')
-# 将尺寸变换到合适的大小
-rows = 960
-cols = 540
-img = cv2.resize(img_origin, (rows, cols), interpolation=cv2.INTER_AREA)
 
 
 def select_corner(img):
@@ -152,42 +146,53 @@ def fill_blanks(nums):
 	return imgs
 
 
-# 高斯模糊
-gau = cv2.GaussianBlur(img, (3, 3), 1.5)
-# 根据BGR色彩二值化
-binary = cv2.inRange(gau, (65, 100, 100), (230, 235, 235))
-# 开运算
-kernel = np.ones((12, 12), np.uint8)
-binary = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
-binary = np.float32(binary)
-# 角点检测
-dst = cv2.cornerHarris(binary, 8, 3, 0.05)
-# 调用select_corner()挑选出角点
-[min_i, min_j, max_i, max_j] = select_corner(dst)
-cv2.rectangle(img, (min_j, min_i), (max_j, max_i), (0, 255, 0), 1)  # 以绿色在原图img上绘制ROI区域
-cv2.putText(img, 'Express package', (min_j, min_i-5), cv2.FONT_ITALIC, 0.5, (0, 255, 0), 1)
-# 根据角点提取出感兴趣区域ROI
-roi = binary[min_i:max_i, min_j:max_j]
-roi = np.uint8(roi)
-# 对ROI进行闭运算，以消除边缘噪声
-kernel = np.ones((5, 5), np.uint8)
-roi = cv2.morphologyEx(roi, cv2.MORPH_CLOSE, kernel)
-# 从ROI中分离出各个数字，以list形式存储
-nums = separate_numbers(roi)
-# 在分离出的各个数字周围以白色像素填充
-nums = fill_blanks(nums)
-# 计算并显示结果
-result = []
-final = 0
-length = len(nums)
-for i in range(length):
-	result.append(mnist_lenet5_app.application(nums[i]))
-	final = final + int(result[i]) * pow(10, (length - 1) - i)
-print('预测值为', final)
+def main():
+	# 读取图片
+	img = cv2.imread('pictures/box3.jpg')
+	# 将尺寸变换到合适的大小
+	rows = 960
+	cols = 540
+	img = cv2.resize(img, (rows, cols), interpolation=cv2.INTER_AREA)
+	# 高斯模糊
+	gau = cv2.GaussianBlur(img, (3, 3), 1.5)
+	# 根据BGR色彩二值化
+	binary = cv2.inRange(gau, (65, 100, 100), (230, 235, 235))
+	# 开运算
+	kernel = np.ones((12, 12), np.uint8)
+	binary = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)
+	binary = np.float32(binary)
+	# 角点检测
+	dst = cv2.cornerHarris(binary, 8, 3, 0.05)
+	# 调用select_corner()挑选出角点
+	[min_i, min_j, max_i, max_j] = select_corner(dst)
+	cv2.rectangle(img, (min_j, min_i), (max_j, max_i), (0, 255, 0), 1)  # 以绿色在原图img上绘制ROI区域
+	cv2.putText(img, 'Express package', (min_j, min_i - 5), cv2.FONT_ITALIC, 0.5, (0, 255, 0), 1)
+	# 根据角点提取出感兴趣区域ROI
+	roi = binary[min_i:max_i, min_j:max_j]
+	roi = np.uint8(roi)
+	# 对ROI进行闭运算，以消除边缘噪声
+	kernel = np.ones((5, 5), np.uint8)
+	roi = cv2.morphologyEx(roi, cv2.MORPH_CLOSE, kernel)
+	# 从ROI中分离出各个数字，以list形式存储
+	nums = separate_numbers(roi)
+	# 在分离出的各个数字周围以白色像素填充
+	nums = fill_blanks(nums)
+	# 计算并显示结果
+	result = []
+	final = 0
+	length = len(nums)
+	for i in range(length):
+		result.append(mnist_lenet5_app.application(nums[i]))
+		final = final + int(result[i]) * pow(10, (length - 1) - i)
+	print('预测值为', final)
 
-cv2.imshow('img', img)
-# cv2.imshow('binary', binary)
-# cv2.imshow('dst', dst)
-# cv2.imshow('roi', roi)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+	cv2.imshow('img', img)
+	# cv2.imshow('binary', binary)
+	# cv2.imshow('dst', dst)
+	# cv2.imshow('roi', roi)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+
+
+if __name__ == '__main__':
+	main()
