@@ -120,12 +120,14 @@ def separate_numbers(img):
 	print('ROI图片中存在', len(min_j), '个数字')
 	# 将分离出来的数字resize成神经网络识别的28 * 28像素，并添加至返回值nums[]的尾端
 	nums = []
+	pos = []
 	for i in range(len(min_j)):
 		pic = img[min_i:max_i, min_j[i]:max_j[i]]
 		pic = cv2.resize(pic, (block_size, block_size), interpolation=cv2.INTER_AREA)
 		nums.append(pic)
+		pos.append([min_i, min_j[i], max_i, max_j[i]])
 	np.array(nums)
-	return nums
+	return nums, pos
 
 
 def fill_blanks(nums):
@@ -165,8 +167,8 @@ def main():
 	dst = cv2.cornerHarris(binary, 8, 3, 0.05)
 	# 调用select_corner()挑选出角点
 	[min_i, min_j, max_i, max_j] = select_corner(dst)
-	cv2.rectangle(img, (min_j, min_i), (max_j, max_i), (0, 255, 0), 1)  # 以绿色在原图img上绘制ROI区域
-	cv2.putText(img, 'Express package', (min_j, min_i - 5), cv2.FONT_ITALIC, 0.5, (0, 255, 0), 1)
+	cv2.rectangle(img, (min_j-1, min_i-1), (max_j-1, max_i-1), (0, 255, 0), 2)  # 以绿色在原图img上绘制ROI区域
+	cv2.putText(img, 'Express package', (min_j, min_i - 5), cv2.FONT_ITALIC, 0.75, (0, 255, 0), 2)
 	# 根据角点提取出感兴趣区域ROI
 	roi = binary[min_i:max_i, min_j:max_j]
 	roi = np.uint8(roi)
@@ -174,17 +176,26 @@ def main():
 	kernel = np.ones((5, 5), np.uint8)
 	roi = cv2.morphologyEx(roi, cv2.MORPH_CLOSE, kernel)
 	# 从ROI中分离出各个数字，以list形式存储
-	nums = separate_numbers(roi)
+	nums, pos = separate_numbers(roi)
+	# for i in range(len(nums)):
+	# 	cv2.imshow('nums[%d]' % i, nums[i])
 	# 在分离出的各个数字周围以白色像素填充
 	nums = fill_blanks(nums)
+	# for i in range(len(nums)):
+	# 	cv2.imshow('blank_nums[%d]' % i, nums[i])
 	# 计算并显示结果
 	result = []
 	final = 0
 	length = len(nums)
 	for i in range(length):
-		result.append(mnist_lenet5_app.application(nums[i]))
+		# 计算过程
+		number = mnist_lenet5_app.application(nums[i])
+		result.append(number)
 		final = final + int(result[i]) * pow(10, (length - 1) - i)
-	print('预测值为', final)
+		# 绘制图像
+		cv2.rectangle(img, (min_j+pos[i][1]-2, min_i+pos[i][0]-2), (min_j+pos[i][3]-2, min_i+pos[i][2]-2), (0, 0, 255), 2)
+		cv2.putText(img, 'nums[%d]=%d' % (i, number), (min_j+pos[i][1], min_i+pos[i][0] - 7), cv2.FONT_ITALIC, 0.75, (0, 0, 255), 2)
+	cv2.putText(img, 'The result is %d' % final, (0, cols-2), cv2.FONT_ITALIC, 0.75, (255, 255, 255), 2)
 
 	cv2.imshow('img', img)
 	# cv2.imshow('binary', binary)
