@@ -8,131 +8,102 @@
 import cv2
 import numpy as np
 import mnist_lenet5_app
-
-
-def select_corner(img):
-	[rows, cols] = img.shape  # [行， 列]
-	record_min_i = rows
-	record_min_j = cols
-	record_max_i = 0
-	record_max_j = 0
-	threshold = 0.01*img.max()
-	# 在第一个象限中寻找最接近左上端的角点
-	minimum = rows + cols
-	record_i1 = rows
-	record_j1 = cols
-	for i in range(int(rows/2)):
-		for j in range(int(cols/2)):
-			if img[i, j] > threshold and i + j < minimum:
-				minimum = i + j
-				record_i1 = i
-				record_j1 = j
-	# print('第一象限角点为', record_i1, record_j1)
-	# 在第二个象限中寻找最接近右上端的角点
-	maximum = 0
-	record_i2 = 0
-	record_j2 = cols
-	for i in range(int(rows/2)):
-		for j in range(cols - 1, int(cols/2), -1):
-			if img[i, j] > threshold and j / (i+1) > maximum:
-				maximum = j / (i+1)
-				record_i2 = i
-				record_j2 = j
-	# print('第二象限角点为', record_i2, record_j2)
-	# 在第三个象限中寻找最接近左下端的角点
-	maximum = 0
-	record_i3 = rows
-	record_j3 = 0
-	for i in range(rows - 1, int(rows/2), -1):
-		for j in range(int(cols/2)):
-			if img[i, j] > threshold and i / (j+1) > maximum:
-				maximum = i / (j+1)
-				record_i3 = i
-				record_j3 = j
-	# print('第三象限角点为', record_i3, record_j3)
-	# 在第四个象限中寻找最接近右下端的角点
-	maximum = 0
-	record_i4 = 0
-	record_j4 = 0
-	for i in range(rows - 1, int(rows/2), -1):
-		for j in range(cols - 1, int(cols/2), -1):
-			if img[i, j] > threshold and i + j > maximum:
-				maximum = i + j
-				record_i4 = i
-				record_j4 = j
-	# print('第四象限角点为', record_i4, record_j4)
-	# 判定最佳ROI范围
-	record_min_i = max(record_i1, record_i2)
-	record_min_j = max(record_j1, record_j3)
-	record_max_i = min(record_i3, record_i4)
-	record_max_j = min(record_j2, record_j4)
-	# print('The return value is ', record_min_i, record_min_j, record_max_i, record_max_j)
-	return [record_min_i, record_min_j, record_max_i, record_max_j]
+import RegionGrow as rg
 
 
 def separate_numbers(img):
-	block_size = 16
+	block_size = 160
 	rows, cols = img.shape
-	min_i = 0
-	min_j = []
-	max_i = rows
-	max_j = []
-	# 纵向查找
-	black_flag = 0
-	for j in range(cols):
-		temp = img[:, j]
-		# 如果j列之前均为白色像素
-		if black_flag == 0:
-			# j列存在黑色像素，black_flag置1，同时记录此时列数j为min_j
-			if np.min(temp) == 0:
-				black_flag = 1
-				min_j.append(j)
-				# print('    记录min_j位置：', j)
-			# j列不存在黑色像素，则继续遍历
-		# 如果j列之前存在黑色像素
-		elif black_flag == 1:
-			# j列不存在黑色像素，black_flag置0，同时记录此时列数j为max_j
-			if np.min(temp) == 255:
-				black_flag = 0
-				max_j.append(j)
-				# print('    记录max_j位置：', j)
-			# j列仍然存在黑色像素，则继续遍历
-	# 横向查找
-	black_flag = 0
-	for i in range(rows):
-		temp = img[i, :]
-		# 如果i行之前均为白色像素
-		if black_flag == 0:
-			# i行存在黑色像素，black_flag置1，同时记录此时行数i为min_i
-			if np.min(temp) == 0:
-				black_flag = 1
-				min_i = i
-				# print('    记录min_i位置：', i)
-			# i行不存在黑色像素，则继续遍历
-		# 如果i行之前存在黑色像素
-		elif black_flag == 1:
-			# i行不存在黑色像素，black_flag置0，同时记录此时列数i为max_i
-			if np.min(temp) == 255:
-				black_flag = 0
-				max_i = i
-				# print('    记录max_i位置：', i)
-			# i行仍然存在黑色像素，则继续遍历
-	print('ROI图片中存在', len(min_j), '个数字')
-	# 将分离出来的数字resize成神经网络识别的28 * 28像素，并添加至返回值nums[]的尾端
+	minimum = np.min(img)
+	seeds = []
+	binaryImg = []
+	k = 0
+	# 持续迭代，直到roi中不存在黑像素
+	while (minimum == 0):
+		# 遍历roi寻找种子像素
+		for i in range(rows):
+			for j in range(cols):
+				if img[i, j] == 0:
+					seeds = [rg.Point(i, j)]
+					break
+		# 若找到种子像素
+		if len(seeds) > 0:
+			binaryImg.append(rg.regionGrow(img, seeds, 10))
+		else:
+			print('未找到种子像素')
+			break
+		# 将分离出来的数字，从roi中涂白抹除
+		for i in range(rows):
+			for j in range(cols):
+				if binaryImg[k][i, j] != 0.0:
+					img[i, j] = 255
+		# 再次迭代
+		minimum = np.min(img)
+		k = k + 1
+	binaryImg255 = np.zeros(np.array(binaryImg).shape, dtype=np.uint8)
+	for i in range(len(binaryImg)):
+		for j in range(rows):
+			for k in range(cols):
+				if binaryImg[i][j, k] == 0.0:
+					binaryImg255[i][j, k] = 255
+				else:
+					binaryImg255[i][j, k] = 0
+
+	# 数字框选
 	nums = []
 	pos = []
-	for i in range(len(min_j)):
-		pic = img[min_i:max_i, min_j[i]:max_j[i]]
+	for k in range(len(binaryImg255)):
+		# 纵向查找
+		black_flag = 0
+		min_i = 0
+		min_j = 0
+		max_i = rows
+		max_j = cols
+		for j in range(cols):
+			temp = binaryImg255[k][:, j]
+			# 如果j列之前均为白色像素
+			if black_flag == 0:
+				# j列存在黑色像素，black_flag置1，同时记录此时列数j为min_j
+				if np.min(temp) == 0:
+					black_flag = 1
+					min_j = j
+				# j列不存在黑色像素，则继续遍历
+			# 如果j列之前存在黑色像素
+			elif black_flag == 1:
+				# j列不存在黑色像素，black_flag置0，同时记录此时列数j为max_j
+				if np.min(temp) == 255:
+					black_flag = 0
+					max_j = j
+			# j列仍然存在黑色像素，则继续遍历
+		# 横向查找
+		black_flag = 0
+		for i in range(rows):
+			temp = binaryImg255[k][i, :]
+			# 如果i行之前均为白色像素
+			if black_flag == 0:
+				# i行存在黑色像素，black_flag置1，同时记录此时行数i为min_i
+				if np.min(temp) == 0:
+					black_flag = 1
+					min_i = i
+			# i行不存在黑色像素，则继续遍历
+			# 如果i行之前存在黑色像素
+			elif black_flag == 1:
+				# i行不存在黑色像素，black_flag置0，同时记录此时列数i为max_i
+				if np.min(temp) == 255:
+					black_flag = 0
+					max_i = i
+		# i行仍然存在黑色像素，则继续遍历
+		pic = binaryImg255[k][min_i:max_i, min_j:max_j]
 		pic = cv2.resize(pic, (block_size, block_size), interpolation=cv2.INTER_AREA)
 		nums.append(pic)
-		pos.append([min_i, min_j[i], max_i, max_j[i]])
-	np.array(nums)
+		pos.append([min_i, min_j, max_i, max_j])
+	nums = np.array(nums)
 	return nums, pos
 
 
 def fill_blanks(nums):
 	nums = np.array(nums)
-	block_size = 28
+	block_size = 280
 	rows, cols = nums[0].shape
 	edge = int((block_size - rows) / 2)
 	imgs = []
@@ -166,7 +137,7 @@ def main():
 	# 角点检测
 	dst = cv2.cornerHarris(binary, 8, 3, 0.05)
 	# 调用select_corner()挑选出角点
-	[min_i, min_j, max_i, max_j] = select_corner(dst)
+	[min_i, min_j, max_i, max_j] = rg.select_corner(dst)
 	cv2.rectangle(img, (min_j-1, min_i-1), (max_j-1, max_i-1), (0, 255, 0), 2)  # 以绿色在原图img上绘制ROI区域
 	cv2.putText(img, 'Express package', (min_j, min_i - 5), cv2.FONT_ITALIC, 0.75, (0, 255, 0), 2)
 	# 根据角点提取出感兴趣区域ROI
@@ -177,10 +148,14 @@ def main():
 	roi = cv2.morphologyEx(roi, cv2.MORPH_CLOSE, kernel)
 	# 从ROI中分离出各个数字，以list形式存储
 	nums, pos = separate_numbers(roi)
+	for i in range(len(nums)):
+		cv2.imshow('nums[%d]' % i, nums[i])
 	# for i in range(len(nums)):
-	# 	cv2.imshow('nums[%d]' % i, nums[i])
+	# 	cv2.imshow('nums[%d]' % i, nums[i]  )
 	# 在分离出的各个数字周围以白色像素填充
 	nums = fill_blanks(nums)
+	for i in range(len(nums)):
+		cv2.imshow('nums[%d]' % i, nums[i])
 	# for i in range(len(nums)):
 	# 	cv2.imshow('blank_nums[%d]' % i, nums[i])
 	# 计算并显示结果
